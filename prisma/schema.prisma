@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Device {
+  id         Int       @id @default(autoincrement())
+  device_id  String    @unique
+  name       String
+  lat        Float
+  lng        Float
+  lastSeenAt DateTime?
+  isOnline   Boolean   @default(false)
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  rains   RainReading[]
+  images  Image[]
+}
+
+model RainReading {
+  id          Int      @id @default(autoincrement())
+  deviceId    Int
+  timestamp   DateTime @default(now())
+  rainfall_mm Float
+  device      Device   @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+
+  @@index([deviceId, timestamp])
+}
+
+model Image {
+  id        Int      @id @default(autoincrement())
+  deviceId  Int
+  timestamp DateTime @default(now())
+  filePath  String
+  width     Int?
+  height    Int?
+  sizeKB    Int?
+  device    Device   @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+
+  @@index([deviceId, timestamp])
+}
+
+model WeatherCache {
+  id        Int      @id @default(autoincrement())
+  latHash   String
+  lngHash   String
+  payload   Json
+  fetchedAt DateTime @default(now())
+  provider  String
+
+  @@index([latHash, lngHash])
+}
+
+model User {
+  id           Int     @id @default(autoincrement())
+  email        String  @unique
+  passwordHash String
+  role         String  @default("admin")
+}
