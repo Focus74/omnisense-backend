@@ -1,7 +1,15 @@
-﻿const express = require('express');
+﻿// src/routes/devices.js
+const express = require('express');
 const prisma = require('../db');
 const router = express.Router();
 
+/** รับทั้ง id (number) หรือ device_id (string) */
+function whereFrom(param) {
+  const n = Number(param);
+  return Number.isFinite(n) ? { id: n } : { device_id: String(param) };
+}
+
+// รายการอุปกรณ์ + ค่าล่าสุด
 router.get('/', async (_req, res) => {
   const devices = await prisma.device.findMany({
     include: {
@@ -9,60 +17,80 @@ router.get('/', async (_req, res) => {
       images: { orderBy: { timestamp: 'desc' }, take: 1 },
     },
     orderBy: { updatedAt: 'desc' },
-  });
+  }).catch(() => []);
   res.json(devices);
 });
 
-router.get('/:id', async (req, res) => {
-  const id = Number(req.params.id);
-  const device = await prisma.device.findUnique({
-    where: { id },
+// รายละเอียดอุปกรณ์
+router.get('/:idOrKey', async (req, res) => {
+  const d = await prisma.device.findFirst({
+    where: whereFrom(req.params.idOrKey),
     include: {
-      rains:  { orderBy: { timestamp: 'desc' }, take: 100 },
+      rains:  { orderBy: { timestamp: 'desc' }, take: 50 },
       images: { orderBy: { timestamp: 'desc' }, take: 50 },
     },
   });
-  if (!device) return res.status(404).json({ error: 'device not found' });
-  res.json(device);
+  if (!d) return res.status(404).json({ error: 'not found' });
+  res.json(d);
 });
 
-router.get('/:id/rain', async (req, res) => {
-  const id = Number(req.params.id);
+// ✅ รูปล่าสุดของอุปกรณ์
+router.get('/:idOrKey/latest-image', async (req, res) => {
+  const device = await prisma.device.findFirst({ where: whereFrom(req.params.idOrKey) });
+  if (!device) return res.status(404).json({ error: 'not found' });
 
-  // รองรับทั้ง hours และ since (ISO datetime) และ fallback เป็น limit
-  const hours = req.query.hours ? Number(req.query.hours) : null;
-  const since = req.query.since ? new Date(req.query.since) : null;
-  const limit = Number(req.query.limit || 500);
-
-  const where = { deviceId: id };
-
-  if (hours && !Number.isNaN(hours)) {
-    const gte = new Date(Date.now() - hours * 60 * 60 * 1000);
-    where.timestamp = { gte };
-  } else if (since && !Number.isNaN(since.getTime())) {
-    where.timestamp = { gte: since };
-  }
-
-  // เรียงจากเก่า→ใหม่ จะได้เอาไปวาดกราฟตรง ๆ
-  const rows = await prisma.rainReading.findMany({
-    where,
-    orderBy: { timestamp: 'asc' },
-    take: hours || since ? undefined : limit,
+  const last = await prisma.image.findFirst({
+    where: { deviceId: device.id },
+    orderBy: { timestamp: 'desc' },
   });
+  if (!last) return res.status(404).json({ error: 'not found' });
 
-  res.json(rows);
+  const url = last.filePath.startsWith('/')
+    ? last.filePath
+    : `/${last.filePath.replace(/\\/g, '/')}`;
+
+  res.json({ ...last, url });
 });
 
+// (ออปชัน) รูปทั้งหมดแบบ limit
+router.get('/:idOrKey/images', async (req, res) => {
+  const limit = Math.min(Number(req.query.limit || 100), 500);
+  const device = await prisma.device.findFirst({ where: whereFrom(req.params.idOrKey) });
+  if (!device) return res.status(404).json({ error: 'not found' });
 
-router.get('/:id/images', async (req, res) => {
-  const id = Number(req.params.id);
-  const limit = Number(req.query.limit || 100);
   const rows = await prisma.image.findMany({
-    where: { deviceId: id },
+    where: { deviceId: device.id },
     orderBy: { timestamp: 'desc' },
     take: limit,
   });
-  res.json(rows);
+  res.json(rows.map(r => ({
+    ...r,
+    url: r.filePath.startsWith('/') ? r.filePath : `/${r.filePath.replace(/\\/g, '/')}`
+  })));
 });
 
 module.exports = router;
+
+// อ่านข้อมูลฝนตามช่วงเวลา: /api/devices/:idOrKey/rain?hours=24 หรือ ?today=true
+router.get('/:idOrKey/rain', async (req, res) => {
+  const whereDev = whereFrom(req.params.idOrKey);
+  const device = await prisma.device.findFirst({ where: whereDev });
+  if (!device) return res.status(404).json({ error: 'not found' });
+
+  const now = new Date();
+  let since = null;
+  if (req.query.today) {
+    since = new Date(); since.setHours(0,0,0,0);
+  } else {
+    const h = Number(req.query.hours || 24);
+    since = new Date(now.getTime() - h * 60 * 60 * 1000);
+  }
+
+  const rows = await prisma.rainReading.findMany({
+    where: { deviceId: device.id, timestamp: { gte: since } },
+    orderBy: { timestamp: 'asc' },
+  });
+
+  res.json(rows);
+});
+

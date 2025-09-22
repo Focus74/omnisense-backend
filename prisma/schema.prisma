@@ -1,10 +1,11 @@
-generator client {
-  provider = "prisma-client-js"
-}
-
+// prisma/schema.prisma
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
 }
 
 model Device {
@@ -18,47 +19,53 @@ model Device {
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
 
+  // relations (ชื่อให้ตรงกับที่โค้ด include: { rains, images })
   rains   RainReading[]
   images  Image[]
+
+  @@index([updatedAt])
+  @@index([lat, lng])
 }
 
 model RainReading {
-  id          Int      @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   deviceId    Int
-  timestamp   DateTime @default(now())
+  device      Device    @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  timestamp   DateTime  @default(now())
   rainfall_mm Float
-  device      Device   @relation(fields: [deviceId], references: [id], onDelete: Cascade)
 
-  @@index([deviceId, timestamp])
+  @@index([deviceId, timestamp(sort: Desc)])
 }
 
 model Image {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   deviceId  Int
-  timestamp DateTime @default(now())
+  device    Device    @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  timestamp DateTime  @default(now())
   filePath  String
   width     Int?
   height    Int?
   sizeKB    Int?
-  device    Device   @relation(fields: [deviceId], references: [id], onDelete: Cascade)
 
-  @@index([deviceId, timestamp])
+  @@index([deviceId, timestamp(sort: Desc)])
 }
 
 model WeatherCache {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   latHash   String
   lngHash   String
-  payload   Json
-  fetchedAt DateTime @default(now())
   provider  String
+  payload   Json
+  fetchedAt DateTime  @default(now())
 
-  @@index([latHash, lngHash])
+  @@index([latHash, lngHash, provider, fetchedAt(sort: Desc)])
 }
 
 model User {
-  id           Int     @id @default(autoincrement())
-  email        String  @unique
+  id           Int       @id @default(autoincrement())
+  email        String    @unique
   passwordHash String
-  role         String  @default("admin")
+  role         String    @default("admin")
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
 }

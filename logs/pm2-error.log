@@ -1,0 +1,90 @@
+2025-09-21T16:27:38: ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+2025-09-21T16:27:38:     at Object.xForwardedForHeader (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:366:13)
+2025-09-21T16:27:38:     at wrappedValidations.<computed> [as xForwardedForHeader] (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:638:22)
+2025-09-21T16:27:38:     at Object.keyGenerator (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:740:20)
+2025-09-21T16:27:38:     at D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:801:32
+2025-09-21T16:27:38:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-09-21T16:27:38:     at async D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:782:5 {
+2025-09-21T16:27:38:   code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+2025-09-21T16:27:38:   help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+2025-09-21T16:27:38: }
+2025-09-21T16:35:06: ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+2025-09-21T16:35:06:     at Object.xForwardedForHeader (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:366:13)
+2025-09-21T16:35:06:     at wrappedValidations.<computed> [as xForwardedForHeader] (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:638:22)
+2025-09-21T16:35:06:     at Object.keyGenerator (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:740:20)
+2025-09-21T16:35:06:     at D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:801:32
+2025-09-21T16:35:06:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-09-21T16:35:06:     at async D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:782:5 {
+2025-09-21T16:35:06:   code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+2025-09-21T16:35:06:   help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+2025-09-21T16:35:06: }
+2025-09-21T16:39:33: ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+2025-09-21T16:39:33:     at Object.xForwardedForHeader (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:366:13)
+2025-09-21T16:39:33:     at wrappedValidations.<computed> [as xForwardedForHeader] (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:638:22)
+2025-09-21T16:39:33:     at Object.keyGenerator (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:740:20)
+2025-09-21T16:39:33:     at D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:801:32
+2025-09-21T16:39:33:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-09-21T16:39:33:     at async D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:782:5 {
+2025-09-21T16:39:33:   code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+2025-09-21T16:39:33:   help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+2025-09-21T16:39:33: }
+2025-09-21T16:48:41: ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+2025-09-21T16:48:41:     at Object.xForwardedForHeader (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:366:13)
+2025-09-21T16:48:41:     at wrappedValidations.<computed> [as xForwardedForHeader] (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:638:22)
+2025-09-21T16:48:41:     at Object.keyGenerator (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:740:20)
+2025-09-21T16:48:41:     at D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:801:32
+2025-09-21T16:48:41:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-09-21T16:48:41:     at async D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:782:5 {
+2025-09-21T16:48:41:   code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+2025-09-21T16:48:41:   help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+2025-09-21T16:48:41: }
+2025-09-21T17:21:30: ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+2025-09-21T17:21:30:     at Object.xForwardedForHeader (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:366:13)
+2025-09-21T17:21:30:     at wrappedValidations.<computed> [as xForwardedForHeader] (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:638:22)
+2025-09-21T17:21:30:     at Object.keyGenerator (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:740:20)
+2025-09-21T17:21:30:     at D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:801:32
+2025-09-21T17:21:30:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-09-21T17:21:30:     at async D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:782:5 {
+2025-09-21T17:21:30:   code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+2025-09-21T17:21:30:   help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+2025-09-21T17:21:30: }
+2025-09-21T17:38:13: ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+2025-09-21T17:38:13:     at Object.xForwardedForHeader (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:366:13)
+2025-09-21T17:38:13:     at wrappedValidations.<computed> [as xForwardedForHeader] (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:638:22)
+2025-09-21T17:38:13:     at Object.keyGenerator (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:740:20)
+2025-09-21T17:38:13:     at D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:801:32
+2025-09-21T17:38:13:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-09-21T17:38:13:     at async D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:782:5 {
+2025-09-21T17:38:13:   code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+2025-09-21T17:38:13:   help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+2025-09-21T17:38:13: }
+2025-09-21T21:13:16: ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+2025-09-21T21:13:16:     at Object.xForwardedForHeader (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:366:13)
+2025-09-21T21:13:16:     at wrappedValidations.<computed> [as xForwardedForHeader] (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:638:22)
+2025-09-21T21:13:16:     at Object.keyGenerator (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:740:20)
+2025-09-21T21:13:16:     at D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:801:32
+2025-09-21T21:13:16:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-09-21T21:13:16:     at async D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:782:5 {
+2025-09-21T21:13:16:   code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+2025-09-21T21:13:16:   help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+2025-09-21T21:13:16: }
+2025-09-21T21:23:15: ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+2025-09-21T21:23:15:     at Object.xForwardedForHeader (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:366:13)
+2025-09-21T21:23:15:     at wrappedValidations.<computed> [as xForwardedForHeader] (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:638:22)
+2025-09-21T21:23:15:     at Object.keyGenerator (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:740:20)
+2025-09-21T21:23:15:     at D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:801:32
+2025-09-21T21:23:15:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-09-21T21:23:15:     at async D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:782:5 {
+2025-09-21T21:23:15:   code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+2025-09-21T21:23:15:   help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+2025-09-21T21:23:15: }
+2025-09-21T21:33:38: ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+2025-09-21T21:33:38:     at Object.xForwardedForHeader (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:366:13)
+2025-09-21T21:33:38:     at wrappedValidations.<computed> [as xForwardedForHeader] (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:638:22)
+2025-09-21T21:33:38:     at Object.keyGenerator (D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:740:20)
+2025-09-21T21:33:38:     at D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:801:32
+2025-09-21T21:33:38:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-09-21T21:33:38:     at async D:\omnisense-backend\node_modules\.pnpm\express-rate-limit@8.1.0_express@4.21.2\node_modules\express-rate-limit\dist\index.cjs:782:5 {
+2025-09-21T21:33:38:   code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+2025-09-21T21:33:38:   help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+2025-09-21T21:33:38: }
